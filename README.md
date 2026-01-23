@@ -7,10 +7,6 @@ Intelligently parses IPv4/IPv6 addresses, CIDRs, ranges, and wildcard matches to
 
 The cidrize() function does all the work trying to parse IP addresses correctly. Find out more about the project [here](https://github.com/jathanism/cidrize/).
 
-Here is the standard specifications for the respective formats:
-* `IPv4`: [RFC 6864](https://datatracker.ietf.org/doc/rfc6864/)
-* `IPv6`: [RFC 2460](https://datatracker.ietf.org/doc/html/rfc2460)
-
 ## Project structure
 ```markdown
 cidrize-runner
@@ -20,6 +16,10 @@ cidrize-runner
 - **bin**: This directory contains the binary subject to run the fuzzer on.
 
 ## Input structure
+The following materials describe the standard specifications for each supported format. Use them as a reference to understand what valid input should look like:
+* `IPv4`: [RFC 6864](https://datatracker.ietf.org/doc/rfc6864/)
+* `IPv6`: [RFC 2460](https://datatracker.ietf.org/doc/html/rfc2460)
+
 Inputs in the below structure are accepted for the following formats:
 
 * `192.0.2.18`
