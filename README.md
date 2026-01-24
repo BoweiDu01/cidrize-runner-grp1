@@ -44,12 +44,12 @@ Saved bug count report and tracebacks for the bugs encountered!
 
 With bugs
 ```bash
-$ cidrize-runner --func cidrize --ipstr '192.0.2.0 255.255.255.0' --raise-err
-ors
+$ cidrize-runner --func cidrize --ipstr '192.0.2.0 255.255.255.0' --raise-errors
 Running cidrize function with the arguments: ipstr: 192.0.2.0 255.255.255.0 strict: False raise-errors: True
 Syntax error caught for ipstr.
-cidrize_runner_stv.py:124: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
-  timestamp = datetime.now(UTC)
+============================================================
+TRACEBACK
+============================================================
 Traceback (most recent call last):
   File "netaddr/ip/__init__.py", line 346, in __init__
   File "netaddr/strategy/ipv4.py", line 124, in str_to_int
@@ -66,38 +66,11 @@ netaddr.core.AddrFormatError: base address '192.0.2.0 255.255.255.0' is not IPv4
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "cidrize_runner_stv.py", line 243, in <module>
-    output = cidrize(args.ipstr, args.strict, args.raise_errors)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "cidrize_runner_stv.py", line 247, in <module>
   File "buggy_cidrize/cidrize_stv.py", line 481, in cidrize
-    result = IPNetwork(ipstr)
-             ^^^^^^^^^^^^^^^^
   File "netaddr/ip/__init__.py", line 1045, in __init__
 netaddr.core.AddrFormatError: invalid IPNetwork 192.0.2.0 255.255.255.0
-Traceback (most recent call last):
-  File "netaddr/ip/__init__.py", line 346, in __init__
-  File "netaddr/strategy/ipv4.py", line 124, in str_to_int
-netaddr.core.AddrFormatError: '192.0.2.0 255.255.255.0' is not a valid IPv4 address string!
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "netaddr/ip/__init__.py", line 1034, in __init__
-  File "netaddr/ip/__init__.py", line 902, in parse_ip_network
-  File "netaddr/ip/__init__.py", line 348, in __init__
-netaddr.core.AddrFormatError: base address '192.0.2.0 255.255.255.0' is not IPv4
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "cidrize_runner_stv.py", line 243, in <module>
-    output = cidrize(args.ipstr, args.strict, args.raise_errors)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "buggy_cidrize/cidrize_stv.py", line 481, in cidrize
-    result = IPNetwork(ipstr)
-             ^^^^^^^^^^^^^^^^
-  File "netaddr/ip/__init__.py", line 1045, in __init__
-netaddr.core.AddrFormatError: invalid IPNetwork 192.0.2.0 255.255.255.0
+============================================================
 Final bug count: defaultdict(<class 'int'>, {('syntactic', <class 'netaddr.core.AddrFormatError'>, 'invalid IPNetwork 192.0.2.0 255.255.255.0', 'netaddr/ip/__init__.py', 1045): 1})
 Saved bug count report and tracebacks for the bugs encountered!
 ```
